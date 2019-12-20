@@ -5,7 +5,7 @@ setup(name="pbu-log-inspector",
       description="Flask endpoint delivering filtered log messages via REST",
       url="https://github.com/ilfrich/pbu-log-inspector",
       author="Peter Ilfrich",
-      author_email='arvishwa@au1.ibm.com  ',
+      author_email='peter.ilfrich@au1.ibm.com',
       license="Apache-2.0",
       packages=[
           "loginspect"
