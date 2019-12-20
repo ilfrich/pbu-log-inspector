@@ -25,7 +25,7 @@ app.run(host="0.0.0.0", port=5444)
 The `register_endpoint` function will register an endpoint `GET /api/_logs`, which will can be used to serve daily logs.
 There are additional parameters available for this function: 
 
-```
+```python
 register_endpoint(app, log_folder="_logs", api_prefix="/api", log_file_mapping=None, login_check=None)
 ```
 
