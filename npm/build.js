@@ -591,15 +591,7 @@ exports["default"] = void 0;
 
 var _LogInspectorContainer = _interopRequireDefault(require("./LogInspectorContainer"));
 
-var _LogInspectorForm = _interopRequireDefault(require("./LogInspectorForm"));
-
-var _LogInspectorResult = _interopRequireDefault(require("./LogInspectorResult"));
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-var _default = {
-  LogInspectorContainer: _LogInspectorContainer["default"],
-  LogInspectorForm: _LogInspectorForm["default"],
-  LogInspectorResult: _LogInspectorResult["default"]
-};
+var _default = _LogInspectorContainer["default"];
 exports["default"] = _default;

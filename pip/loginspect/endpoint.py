@@ -157,7 +157,7 @@ def _get_log_messages(log_folder, candidates, log_date):
     return list(sorted(result, key=lambda x: x["timestamp"]))
 
 
-def register_endpoint(app, log_folder="./_logs", api_prefix="/api", log_file_mapping=None):
+def register_endpoint(app, log_folder="./_logs", api_prefix="/api", log_file_mapping=None, login_check=None):
     """
     Registers the endpoint to retrieve log files via the API. This will create a new endpoint `/_logs` prefixed by
     whatever prefix is provided.
@@ -165,6 +165,8 @@ def register_endpoint(app, log_folder="./_logs", api_prefix="/api", log_file_map
     :param log_folder: a string representing the folder name where log files are stored
     :param api_prefix: an endpoint prefix to use for the /_logs endpoint (default: /api)
     :param log_file_mapping: a mapping (dict) that maps from log level (see _RequestLevels) to the file name that is
+    :param login_check: a function that will check the request and perform authentication and potentially abort the
+    request. If none is provided, no auth check is performed.
     used. If no mapping is provided, _RequestLevels will be used. Example {"info.log": "custom-log-name.log"}
     """
 
@@ -177,6 +179,9 @@ def register_endpoint(app, log_folder="./_logs", api_prefix="/api", log_file_map
         return INFO logs.
         :return: a JSON response with a list of objects representing each log message.
         """
+        if login_check is not None:
+            login_check()
+
         request_date = request.args.get("date")
         request_level = request.args.get("level")
         if request_level is None:
