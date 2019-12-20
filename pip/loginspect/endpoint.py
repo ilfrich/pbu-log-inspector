@@ -60,7 +60,7 @@ def _find_log_candidates(available_log_files, request_date, log_file_name):
     if len(candidates) == 0:
         return [log_file_name]
     if len(candidates) == 1:
-        return [candidates["file"]]
+        return [candidates[0]["file"]]
 
     # check if we have to add additional files
     sorted_files = list(sorted(candidates, key=lambda x: x["end_time"]))
@@ -91,7 +91,6 @@ def _parse_date(line):
         sub = line[0:19]
         message = line[24:]
         date = datetime.strptime(sub, "%Y-%m-%d %H:%M:%S")
-        print(date)
         # was able to parse date, return it
         return date, message
     except ValueError:
