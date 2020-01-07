@@ -1,10 +1,9 @@
 {
   "name": "pbu-log-inspector",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "React components for fetching and displaying logs from a Flask backend using the pbu-log-inspector pip package",
-  "main": "build.js",
   "scripts": {
-    "build": "./node_modules/.bin/babel src --out-file build.js"
+    "build": "./node_modules/.bin/babel src --out-dir ./dist"
   },
   "repository": {
     "type": "git",
